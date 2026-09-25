@@ -6,7 +6,11 @@ plugins {
 
 android {
     namespace = "com.example.vokul_mobile"
-    compileSdk = flutter.compileSdkVersion
+    // Pinned rather than left as `flutter.compileSdkVersion`: that value comes
+    // from whichever Flutter SDK is installed, and file_picker's transitive
+    // dependency (flutter_plugin_android_lifecycle) requires compileSdk 36+
+    // regardless of what the Flutter tool's own default happens to be.
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
