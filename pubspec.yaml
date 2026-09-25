@@ -1,0 +1,30 @@
+name: vokul_mobile
+description: Vokul — a local-first password vault for Android and iOS. Reads and writes the same vault.vk file as the Vokul CLI.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Argon2id key derivation + AES-256-GCM. Pure Dart, so the vault stays
+  # byte-compatible with the Python CLI on every platform.
+  cryptography: ^2.7.0
+  # HMAC-SHA1 for TOTP.
+  crypto: ^3.0.3
+  path_provider: ^2.1.4
+  local_auth: ^2.3.0
+  flutter_secure_storage: ^9.2.2
+  file_picker: ^8.1.2
+  share_plus: ^10.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
