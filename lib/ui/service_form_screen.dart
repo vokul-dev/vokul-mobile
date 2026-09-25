@@ -257,7 +257,7 @@ class _GeneratorSheetState extends State<GeneratorSheet> {
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             value: _memorable,
-            activeColor: VokulColors.violet,
+            activeThumbColor: VokulColors.violet,
             title: const Text('Words instead of characters'),
             subtitle: const Text('Easier to type on a phone keyboard',
                 style: TextStyle(fontSize: 12)),

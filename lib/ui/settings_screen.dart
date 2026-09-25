@@ -45,7 +45,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               SwitchListTile(
                 value: _biometricsOn,
-                activeColor: VokulColors.violet,
+                activeThumbColor: VokulColors.violet,
                 title: const Text('Unlock with biometrics'),
                 subtitle: Text(
                   _biometricsSupported
