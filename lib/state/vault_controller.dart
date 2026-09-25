@@ -213,15 +213,10 @@ class VaultController extends ChangeNotifier {
   /// Replaces the local vault with one picked from storage, after backing the
   /// current one up.
   Future<void> importVaultFile() async {
-    final result = await FilePicker.platform.pickFiles(withData: true);
-    final picked = result?.files.single;
+    final picked = await FilePicker.pickFile();
     if (picked == null) return;
 
-    final bytes = picked.bytes ??
-        (picked.path != null ? await File(picked.path!).readAsBytes() : null);
-    if (bytes == null) {
-      throw const VaultStorageError('Could not read the selected file.');
-    }
+    final bytes = await picked.readAsBytes();
 
     await _manager.backupVault();
     await vaultFile.writeAsBytes(bytes, flush: true);
